@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f39a1d;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        h1 {
+            font-family: 'Nosifer', cursive;
+            text-align: center;
+            color: #ff0000;
+            margin-top: 50px;
+        }
+
+        .main-content {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        table td {
+            padding: 10px;
+            color: #fff; /* Couleur du texte */
+        }
+
+        /* Masquer le texte au départ */
+        .hidden-text {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, visibility 0s 2s;
+        }
+
+        .reveal {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 2s ease-in-out, visibility 0s;
+        }
+
+        /* Media queries for background images */
+        @media (min-width: 1024px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour desktop */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour tablette */
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                background-image: url('background1mobile.jpg'); /* Image pour mobile */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+   <!-- Barre de navigation en haut -->
+   <header>
+    <nav>
+        <a href="histoires.html">Histoires d'Halloween</a>
+        <a href="bonbons.html">Calendrier d'activités</a>
+        <a href="photos.html">Jeu de défis photo</a>
+    </nav>
+</header>
+
+    <!-- Section pour l'histoire mystérieuse -->
+    <section id="mysterious-story">
+        <h2>Une Histoire Terrifiante</h2>
+        <p id="story" class="hidden-text"></p>
+    </p>
+    </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const story = document.getElementById('story');
+        const text = `C'était une nuit glaciale d'octobre, où le vent hurlait à travers les rues désertes. Clara, une jeune femme de 25 ans, venait de finir son travail tard dans une petite ville éloignée. Fatiguée, elle monta dans sa vieille voiture pour rentrer chez elle, impatiente de retrouver la chaleur de son appartement.
+    
+    La route qui la ramenait passait par une longue forêt dense, sans éclairage, où l'obscurité semblait avaler les phares de sa voiture. Elle s'efforçait de rester concentrée, luttant contre la fatigue. Soudain, une vieille camionnette rouillée se mit à la suivre de près, ses phares éblouissants dans le rétroviseur.
+    
+    Clara ressentit une vague d'inquiétude. Pourquoi cette camionnette la suivait-elle si près ? Elle accéléra un peu, mais le véhicule derrière elle faisait de même. Puis, le conducteur commença à klaxonner et à faire des appels de phares frénétiques.
+    
+    Le cœur battant, Clara commença à paniquer. Elle ne voulait pas s'arrêter au milieu de cette forêt déserte. Peut-être que c'était juste quelqu'un qui voulait la prévenir de quelque chose, une panne de phare, ou une porte mal fermée. Mais le conducteur derrière ne semblait pas vouloir la laisser tranquille.
+    
+    Elle se souvint alors d'un vieux conseil donné par son père : "Si tu te sens suivie, ne rentre jamais directement chez toi. Conduis jusqu'à un endroit sûr." Elle décida donc de se rendre à la station-service la plus proche, à quelques kilomètres.
+    
+    En arrivant à la station, Clara s'arrêta rapidement et sortit de sa voiture, le cœur battant la chamade. La camionnette s'arrêta juste derrière elle. Un homme grand, au visage couvert de sueur, descendit de son véhicule et se précipita vers elle.
+    
+    Avant même qu'elle ait le temps de parler, il lui cria :
+    "Montez dans la station ! Maintenant !"
+    
+    Terrifiée, Clara courut à l'intérieur, tandis que l'homme la suivait de près. Une fois à l'intérieur, il ferma la porte et tenta de reprendre son souffle.
+    
+    "Qu'est-ce que vous voulez ?!" hurla Clara, effrayée.
+    
+    L’homme, essoufflé, la regarda avec des yeux fous et lui répondit :
+    "Je te suivais depuis des kilomètres... Il y a quelqu'un sur la banquette arrière de ta voiture !"
+    
+    Le sang de Clara se glaça. Elle sentit son corps se figer. L'homme n'était pas un harceleur, il essayait de la sauver. Tremblante, elle se retourna lentement vers sa voiture, garée à l'extérieur. Dans la pénombre de la banquette arrière, elle distingua une silhouette immobile.
+    
+    Sans un bruit, la porte arrière s'ouvrit et une ombre agile se glissa hors du véhicule. Avant que Clara ou l'homme n'aient pu réagir, l'inconnu s'évanouit dans la nuit noire, disparaissant entre les arbres de la forêt.
+    
+    La police fut appelée immédiatement, mais le tueur de la banquette arrière ne fut jamais retrouvé.
+    
+    Depuis cette nuit-là, Clara ne monte plus jamais seule en voiture sans vérifier scrupuleusement chaque siège... Mais au fond d'elle, elle sait qu'il est toujours là, quelque part, attendant sa prochaine victime, tapi dans l'ombre.`;
+    
+        let i = 0;
+        function revealStory() {
+            if (i < text.length) {
+                story.innerHTML += text.charAt(i);  // Ajouter chaque lettre une par une
+                i++;
+                setTimeout(revealStory, 50);  // Ajuster la vitesse ici (50 ms)
+            }
+        }
+    
+        // Commence l'effet mystérieux après un délai (1 seconde ici)
+        setTimeout(function() {
+            revealStory();
+            story.classList.add('reveal');  // Ajoute la classe pour révéler l'opacité
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

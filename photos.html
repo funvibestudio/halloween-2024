@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nosifer', cursive; /* Police Nosifer */
+            background-color: #f98b60; /* Couleur de fond principale */
+            color: #ffffff; /* Couleur du texte principal */
+            margin: 0; /* Suppression des marges par défaut */
+            padding: 0; /* Suppression des remplissages par défaut */
+            text-align: center; /* Centrage du texte */
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f39a1d;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+table {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        table td {
+            padding: 10px;
+            color: #fff; /* Couleur du texte */
+        }
+        
+      
+
+/* Pour les écrans de bureau (largeur de plus de 1024px) */
+@media (min-width: 1024px) {
+    body {
+        background-image: url('background1desktop.jpg'); /* Image pour les grands écrans */
+    }
+}
+
+/* Pour les tablettes (largeur entre 768px et 1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        background-image: url('background1desktop.jpg'); /* Image pour les tablettes */
+    }
+}
+
+/* Pour les mobiles (largeur inférieure à 768px) */
+@media (max-width: 767px) {
+    body {
+        background-image: url('background1mobile.jpg'); /* Image pour les petits écrans (mobiles) */
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+        .container {
+            margin-top: 20px; /* Marge en haut */
+            padding: 20px; /* Espacement interne */
+            background-color: rgba(255, 255, 255, 0.2); /* Fond semi-transparent pour le conteneur */
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre pour le conteneur */
+        }
+        h1 {
+            font-size: 2em; /* Taille du titre */
+            margin-bottom: 20px; /* Marge en bas */
+            color: #ff0000; /* Couleur rouge pour le titre */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre pour le texte */
+        }
+        #timer {
+            font-size: 1.2em; /* Taille du texte du timer */
+            margin: 10px 0; /* Marges du timer */
+        }
+        #photosList img {
+            max-width: 100px; /* Largeur maximum des images */
+            width: auto; /* Ajustement automatique */
+            margin: 10px; /* Marges autour des images */
+            border-radius: 10px; /* Coins arrondis */
+        }
+        button {
+            margin-top: 10px; /* Marges au-dessus du bouton */
+            padding: 10px 20px; /* Remplissage */
+            border: none; /* Pas de bordure */
+            border-radius: 5px; /* Coins arrondis */
+            cursor: pointer; /* Curseur pointer sur hover */
+            background-color: #4d058d; /* Couleur de fond des boutons */
+            color: rgb(255, 255, 255); /* Couleur du texte des boutons */
+            transition: background-color 0.3s; /* Transition douce pour le hover */
+        }
+        button:hover {
+            background-color: #1e3d59; /* Couleur de fond au survol */
+            color: white; /* Couleur du texte au survol */
+        }
+        .challenge-item {
+            background: rgba(255, 255, 255, 0.2); /* Fond semi-transparent pour les défis */
+            margin: 10px; /* Marges autour des éléments de défi */
+            padding: 10px; /* Remplissage interne */
+            border-radius: 8px; /* Coins arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre pour les éléments de défi */
+            display: flex; /* Flexbox pour alignement */
+            align-items: center; /* Alignement vertical */
+            justify-content: space-between; /* Espacement entre les éléments */
+        }
+        .emoji {
+            cursor: pointer; /* Curseur pointer sur emoji */
+            font-size: 1.5em; /* Taille de l'emoji */
+            margin-left: 10px; /* Marge à gauche de l'emoji */
+        }
+        .back-button {
+            background-color: #168700d0; /* Couleur de fond pour les boutons retour */
+            color: rgb(0, 0, 0); /* Couleur du texte pour les boutons retour */
+            padding: 12px 24px; /* Remplissage */
+            text-align: center; /* Centrage du texte */
+            text-decoration: none; /* Pas de soulignement */
+            display: inline-block; /* Affichage en bloc */
+            border-radius: 8px; /* Coins arrondis */
+            transition: background-color 0.3s; /* Transition douce pour le hover */
+            margin-bottom: 20px; /* Marge en bas */
+        }
+        .back-button:hover {
+            background-color: #1e3d59; /* Couleur de fond au survol */
+        }
+        input[type="file"] {
+            display: none; /* Masquer l'entrée de fichier */
+        }
+        .custom-file-input {
+            background-color: #eaeaeafb; /* Couleur de fond pour l'entrée de fichier personnalisée */
+            border: none; /* Pas de bordure */
+            border-radius: 5px; /* Coins arrondis */
+            padding: 10px 20px; /* Remplissage */
+            cursor: pointer; /* Curseur pointer */
+            color: rgb(0, 0, 0); /* Couleur du texte */
+            font-size: 1em; /* Taille de la police */
+            transition: background-color 0.3s; /* Transition douce pour le hover */
+            margin-top: 10px; /* Marge en haut */
+        }
+        .custom-file-input:hover {
+            background-color: #1e3d59; /* Couleur de fond au survol */
+        }
+        input[type="number"], select {
+            padding: 10px; /* Remplissage */
+            margin: 10px 0; /* Marges verticales */
+            border: 2px solid #4c006a; /* Bordure */
+            border-radius: 5px; /* Coins arrondis */
+            width: calc(50% - 20px); /* Largeur calculée */
+            font-size: 1em; /* Taille de la police */
+            transition: border-color 0.3s; /* Transition pour la bordure */
+        }
+        input[type="number"]:focus, select:focus {
+            border-color: #1e3d59; /* Couleur de bordure au focus */
+            outline: none; /* Pas de contour */
+        }
+        footer {
+            background-color: #2c3e50; /* Couleur de fond du pied de page */
+            color: white; /* Couleur du texte */
+            text-align: center; /* Centrage du texte */
+            padding: 20px 0; /* Remplissage */
+            margin-top: 30px; /* Marge en haut */
+        }
+        footer a {
+            color: #ecf0f1; /* Couleur des liens */
+            text-decoration: none; /* Pas de soulignement */
+        }
+
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f39a1d;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+table {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        table td {
+            padding: 10px;
+            color: #fff; /* Couleur du texte */
+        }
+        
+        /* Pour les écrans de bureau (largeur de plus de 1024px) */
+@media (min-width: 1024px) {
+    body {
+        background-image: url('background1desktop.jpg'); /* Image pour les grands écrans */
+    }
+}
+
+/* Pour les tablettes (largeur entre 768px et 1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        background-image: url('background1desktop.jpg'); /* Image pour les tablettes */
+    }
+}
+
+/* Pour les mobiles (largeur inférieure à 768px) */
+@media (max-width: 767px) {
+    body {
+        background-image: url('background1mobile.jpg'); /* Image pour les petits écrans (mobiles) */
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+       <!-- Barre de navigation en haut -->
+       <header>
+        <nav>
+            <a href="histoires.html">Histoires d'Halloween</a>
+            <a href="bonbons.html">Calendrier d'activités</a>
+            <a href="photos.html">Jeu de défis photo</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Happy Halloween</h1>
+    
+        <a href="tutoriels.html" class="back-button">(Re)voir les tutoriels ✨</a>
+        <p>Préparez-vous pour le défi !</p>
+
+        
+
+        <label for="number-of-challenges">Nombre de défis :</label>
+        <input type="number" id="number-of-challenges" min="1" value="1">
+        <button id="generate-challenges">Générer les défis</button>
+        
+        <div id="challenge-list"></div>
+
+        <label for="timeUnit">Choisissez l'unité de temps :</label>
+        <select id="timeUnit">
+            <option value="seconds">Secondes</option>
+            <option value="minutes">Minutes</option>
+        </select>
+
+        <label for="timerInput">Choisissez le temps :</label>
+        <input type="number" id="timerInput" value="1" min="1">
+        
+        <button id="startButton">Commencer le défi</button>
+        <div id="timer">Temps restant : <span id="time">60</span> secondes</div>
+
+        <div id="photosContainer" style="display:none;">
+            <h2>Photos prises :</h2>
+            <div id="photosList"></div>
+        </div>
+
+        <canvas id="photoCanvas" style="display:none;"></canvas>
+       
+
+
+        <script>
+            let timer;
+            let timeLeft;
+            const startButton = document.getElementById('startButton');
+            const timeDisplay = document.getElementById('time');
+            const timerInput = document.getElementById('timerInput');
+            const photos = [];
+
+            startButton.addEventListener('click', () => {
+                let timeValue = parseInt(timerInput.value);
+                if (document.getElementById('timeUnit').value === 'minutes') {
+                    timeValue *= 60;
+                }
+                timeLeft = timeValue;
+                startTimer();
+            });
+
+            function startTimer() {
+                clearInterval(timer);
+                timeDisplay.textContent = timeLeft;
+
+                timer = setInterval(() => {
+                    timeLeft--;
+                    timeDisplay.textContent = timeLeft;
+
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        alert("Temps écoulé !");
+                        document.getElementById('photosContainer').style.display = 'block';
+                    }
+                }, 1000);
+            }
+
+            document.getElementById('generate-challenges').addEventListener('click', function() {
+                const numberOfChallenges = document.getElementById('number-of-challenges').value;
+                const challengeList = document.getElementById('challenge-list');
+                challengeList.innerHTML = '';
+
+                const challenges = [
+                "Prendre une photo de votre citrouille.",
+    "Photographier un bonbon d'Halloween.",
+    "Capturer un moment avec votre animal de compagnie.",
+    "Prendre une photo d'une décoration d'Halloween.",
+    "Photographier un déguisement simple.",
+    "Prendre un selfie avec un masque.",
+    "Capturer une bougie allumée.",
+    "Photographier un dessin sur le thème d'Halloween.",
+    "Prendre une photo de votre plat d'Halloween préféré.",
+    "Capturer un reflet dans un miroir.",
+    "Photographier une ombre.",
+    "Prendre une photo de vous avec un chapeau de sorcière.",
+    "Photographier un personnage de film d'horreur.",
+    "Prendre une photo d'un décor de fenêtre.",
+    "Capturer une grimace.",
+    "Photographier un bouquet de fleurs d'Halloween.",
+    "Prendre une photo de votre animal en costume.",
+    "Capturer une photo de lumières d'Halloween.",
+    "Photographier un gâteau ou un dessert.",
+    "Prendre une photo de vous avec un crâne.",
+    "Capturer une araignée en plastique.",
+    "Photographier une citrouille à la bougie.",
+    "Prendre une photo de bonbons étalés.",
+    "Capturer un moment de lecture d'une histoire d'Halloween.",
+    "Photographier un accessoire de costume.",
+    "Prendre une photo de votre boisson préférée.",
+    "Capturer une photo de vous en train de faire une grimace.",
+    "Photographier un personnage de jeu vidéo d'horreur.",
+    "Prendre une photo de décorations sur la porte.",
+    "Capturer une photo d'un squelette en plastique.",
+    "Photographier une citrouille décorée.",
+    "Prendre une photo d'un livre d'Halloween.",
+    "Capturer un moment de vous en train de chanter des chansons d'Halloween.",
+    "Photographier des lumières clignotantes.",
+    "Prendre une photo d'une araignée en papier.",
+    "Capturer une photo de vous en costume de zombie.",
+    "Photographier une photo d'un dessert d'Halloween.",
+    "Prendre une photo d'une boîte de bonbons.",
+    "Capturer une photo de vous en train de faire des grimaces.",
+    "Photographier une lanterne.",
+    "Prendre une photo d'une décoration de fenêtre.",
+    "Capturer une photo de bonbons en forme de squelette.",
+    "Photographier un personnage de film d'horreur.",
+    "Prendre une photo de vous en train de regarder un film d'horreur.",
+    "Capturer une photo d'une porte décorée.",
+    "Photographier des décorations en papier.",
+    "Prendre une photo de vous en train de jongler avec des pommes.",
+    "Capturer une photo d'une citrouille.",
+    "Photographier une image d'une araignée.",
+    "Prendre une photo de votre costume d'Halloween préféré.",
+    "Capturer une photo d'un fantôme en papier.",
+    "Photographier un personnage d'un livre d'horreur.",
+    "Prendre une photo de décorations d'Halloween dans le jardin.",
+    "Capturer une photo d'une photo d'Halloween sur un mur.",
+    "Photographier un décor de table pour Halloween.",
+    "Prendre une photo d'un groupe d'amis déguisés.",
+    "Capturer une photo d'une citrouille à l'extérieur.",
+    "Photographier une photo de quelque chose qui fait peur.",
+    "Prendre une photo de vous avec un masque de monstre.",
+    "Capturer une photo de votre film d'horreur préféré en arrière-plan.",
+    "Photographier un crâne décoratif.",
+    "Prendre une photo de vous avec un déguisement d'Halloween.",
+    "Capturer une photo d'une ombre dans la nuit.",
+    "Photographier un plat fait maison sur le thème d'Halloween.",
+    "Prendre une photo de votre animal de compagnie dans une boîte.",
+    "Capturer une photo de décorations d'Halloween dans votre chambre.",
+    "Photographier un reflet dans un miroir avec des lumières.",
+    "Prendre une photo de vous avec des amis.",
+    "Capturer une photo d'un squelette dans une pose drôle.",
+    "Photographier une citrouille à la bougie.",
+    "Prendre une photo d'un livre de contes d'Halloween.",
+    "Capturer une photo de vous en train de faire un bricolage d'Halloween.",
+    "Photographier une ombre dans le jardin.",
+    "Prendre une photo de bonbons de différentes couleurs.",
+    "Capturer une photo d'une décoration de fenêtre.",
+    "Photographier une décoration d'Halloween sur votre bureau.",
+    "Prendre une photo de vous en train de danser.",
+    "Capturer une photo d'un petit monstre fait maison.",
+    "Photographier un crâne en chocolat.",
+    "Prendre une photo de vous avec une lantern.",
+    "Capturer une photo de quelque chose d'étrange dans votre maison.",
+    "Photographier un décor d'Halloween sur une table.",
+    "Prendre une photo de vous en train de lire un livre d'horreur.",
+    "Capturer une photo d'une décoration en forme de fantôme.",
+    "Photographier une citrouille à l'extérieur de votre maison.",
+    "Prendre une photo de vous avec un livre de contes d'Halloween.",
+    "Capturer une photo d'un bocal rempli de bonbons.",
+    "Photographier une araignée en plastique sur une toile.",
+    "Prendre une photo d'un costume fait maison.",
+    "Capturer une photo de vous en train de faire des grimaces.",
+    "Photographier une décoration de fête d'Halloween.",
+    "Prendre une photo d'un costume d'Halloween.",
+    "Capturer une photo de vous avec une décoration effrayante.",
+    "Photographier un décor de maison d'Halloween.",
+    "Prendre une photo de vous en train de faire un bonbon.",
+    "Capturer une photo de vous en train de faire une grimace.",
+    "Photographier un accessoire de costume que vous aimez.",
+    "Prendre une photo de vous avec un groupe d'amis.",
+    "Capturer une photo de vous en train de rire.",
+    "Photographier quelque chose que vous avez fabriqué pour Halloween."
+                ];
+
+                const shuffledChallenges = challenges.sort(() => Math.random() - 0.5);
+
+                for (let i = 0; i < numberOfChallenges; i++) {
+                    const challengeItem = document.createElement('div');
+                    challengeItem.classList.add('challenge-item');
+                    challengeItem.textContent = shuffledChallenges[i % shuffledChallenges.length];
+                    
+                    const emoji = document.createElement('span');
+                    emoji.classList.add('emoji');
+                    emoji.textContent = '📷';
+                    challengeItem.appendChild(emoji);
+                    
+                    const fileInput = document.createElement('input');
+                    fileInput.type = 'file';
+                    fileInput.accept = 'image/*';
+                    fileInput.capture = 'camera';
+                    challengeItem.appendChild(fileInput);
+
+                    const img = document.createElement('img');
+                    img.style.display = 'none';
+                    challengeItem.appendChild(img);
+
+                    // Bouton de téléchargement individuel
+                    const downloadButton = document.createElement('button');
+                    downloadButton.textContent = 'Télécharger';
+                    downloadButton.style.display = 'none'; // Cacher tant qu'aucune photo n'est prise
+                    challengeItem.appendChild(downloadButton);
+
+                    emoji.addEventListener('click', () => {
+                        fileInput.click(); // Ouvrir le sélecteur de fichiers
+                    });
+
+                    fileInput.addEventListener('change', (event) => {
+                        const file = event.target.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                img.setAttribute('src', e.target.result);
+                                img.style.display = 'block'; // Afficher l'image
+                                img.style.width = '100px'; // Limiter la taille à 100px
+                                photos.push({ src: e.target.result, challenge: challengeItem.textContent });
+                                downloadButton.style.display = 'inline-block'; // Afficher le bouton de téléchargement
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+
+                    // Ajouter la fonctionnalité de téléchargement pour chaque photo
+                    downloadButton.addEventListener('click', () => {
+                        const img = new Image();
+                        img.src = photos.find(photo => photo.challenge === challengeItem.textContent).src;
+
+                        img.onload = function() {
+                            const canvas = document.createElement('canvas');
+                            const ctx = canvas.getContext('2d');
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+
+                            ctx.drawImage(img, 0, 0);
+
+                            ctx.fillStyle = 'black';
+                            ctx.font = '120px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.fillText(challengeItem.textContent, canvas.width / 2, 100);
+
+                            const link = document.createElement('a');
+                            link.download = `photo_${i + 1}.png`;
+                            link.href = canvas.toDataURL('image/png');
+                            link.click();
+                        };
+                    });
+
+                    challengeList.appendChild(challengeItem);
+                }
+            });
+        </script>
+    </div>
+</body>

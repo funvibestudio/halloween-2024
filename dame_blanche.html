@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f39a1d;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        h1 {
+            font-family: 'Nosifer', cursive;
+            text-align: center;
+            color: #ff0000;
+            margin-top: 50px;
+        }
+
+        .main-content {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        table td {
+            padding: 10px;
+            color: #fff; /* Couleur du texte */
+        }
+
+        /* Masquer le texte au départ */
+        .hidden-text {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, visibility 0s 2s;
+        }
+
+        .reveal {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 2s ease-in-out, visibility 0s;
+        }
+
+        /* Media queries for background images */
+        @media (min-width: 1024px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour desktop */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour tablette */
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                background-image: url('background1mobile.jpg'); /* Image pour mobile */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+   <!-- Barre de navigation en haut -->
+   <header>
+    <nav>
+        <a href="histoires.html">Histoires d'Halloween</a>
+        <a href="bonbons.html">Calendrier d'activités</a>
+        <a href="photos.html">Jeu de défis photo</a>
+    </nav>
+</header>
+
+    <!-- Section pour l'histoire mystérieuse -->
+    <section id="mysterious-story">
+        <h2>Une Histoire Terrifiante</h2>
+        <p id="story" class="hidden-text"></p>
+    </p>
+    </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const story = document.getElementById('story');
+        const text = `Il était tard dans la nuit, et Julien, un jeune homme revenant d'une soirée chez des amis, conduisait sur une route sinueuse et déserte, en bordure d'une forêt sombre. La nuit était épaisse, et seule la lumière de ses phares fendait l'obscurité. Alors qu'il approchait d'un virage serré, il aperçut soudain une silhouette sur le bord de la route.
+
+Une femme vêtue d'une longue robe blanche, les cheveux mouillés tombant sur son visage pâle, se tenait là, seule, immobile. Julien ralentit, intrigué et inquiet. Elle levait lentement la main, comme pour demander de l'aide.
+
+Bien que l'apparition lui fît froid dans le dos, Julien s'arrêta, baissa la vitre, et demanda :
+« Vous avez besoin d'aide, madame ? »
+D'une voix tremblante, presque un murmure, elle répondit :
+« Oui… Pouvez-vous me ramener à la ville ? »
+
+Julien acquiesça et lui ouvrit la porte. La femme monta silencieusement à l'arrière. Alors qu'il reprenait la route, Julien remarqua dans le rétroviseur que ses lèvres étaient bleues et que ses yeux semblaient vides, mais il n'osa rien dire. L'atmosphère dans la voiture était devenue glaciale. Chaque kilomètre parcouru semblait allonger le trajet, comme si le temps s'était ralenti.
+
+Soudain, à l'approche d'un pont, la voix de la femme se fit plus nette :
+« Attention, ce virage est dangereux… »
+
+Julien, surpris, freina brutalement. À cet instant, une voiture déboucha du virage à toute vitesse, manquant de peu de les percuter. Tremblant, il s'arrêta pour reprendre son souffle et se tourna vers la banquette arrière pour remercier la femme. Mais elle n'était plus là. La banquette était vide.
+
+Paniqué, Julien sortit du véhicule, cherchant autour de lui, mais il n'y avait aucune trace d'elle. Comme si elle s'était volatilisée. Encore sous le choc, il reprit la route, conduisant jusqu'à la ville la plus proche.
+
+Le lendemain, toujours hanté par cette étrange rencontre, Julien raconta son histoire à un vieil habitant de la région. L'homme pâlit en l'écoutant et lui dit :
+« Mon garçon, tu as croisé la Dame Blanche. Il y a des années, une jeune femme est morte dans un accident de voiture à cet endroit précis. Depuis, elle apparaît parfois pour prévenir les automobilistes des dangers de ce virage. Tu as eu de la chance… »
+
+Depuis ce jour, Julien n'a plus jamais pris cette route la nuit, mais il se souvient toujours de la voix fantomatique de la Dame Blanche, qui, d'une manière mystérieuse, lui a sauvé la vie.`;
+    
+        let i = 0;
+        function revealStory() {
+            if (i < text.length) {
+                story.innerHTML += text.charAt(i);  // Ajouter chaque lettre une par une
+                i++;
+                setTimeout(revealStory, 50);  // Ajuster la vitesse ici (50 ms)
+            }
+        }
+    
+        // Commence l'effet mystérieux après un délai (1 seconde ici)
+        setTimeout(function() {
+            revealStory();
+            story.classList.add('reveal');  // Ajoute la classe pour révéler l'opacité
+        }, 500);
+    });
+</script>
+
+</body>
+</html>

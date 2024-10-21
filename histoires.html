@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f39a1d;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        h1 {
+            font-family: 'Nosifer', cursive;
+            text-align: center;
+            color: #ff0000;
+            margin-top: 50px;
+        }
+
+        .main-content {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .destination-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .destination-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .destination-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .destination-item h3 {
+            font-size: 1.5em;
+            margin: 15px;
+            color: #f39a1d; /* Couleur des titres */
+        }
+
+        .destination-item p {
+            margin: 0 15px 15px;
+            color: #fff; /* Couleur du texte pour la lisibilité */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Ombre pour le texte */
+        }
+
+        .destination-item a {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background-color: #f39a1d;
+            color: #000;
+            text-decoration: none;
+            border-radius: 0 0 15px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .destination-item a:hover {
+            background-color: #d97d00; /* Changement de couleur au survol */
+        }
+
+        .map-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        iframe {
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        table {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        table td {
+            padding: 10px;
+            color: #fff; /* Couleur du texte */
+        }
+        
+        /* Media queries for background images */
+        @media (min-width: 1024px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour desktop */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour tablette */
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                background-image: url('background1mobile.jpg'); /* Image pour mobile */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation en haut -->
+    <header>
+        <nav>
+            <a href="histoires.html">Histoires d'Halloween</a>
+            <a href="bonbons.html">Calendrier d'activités</a>
+            <a href="photos.html">Jeu de défis photo</a>
+        </nav>
+    </header>
+
+    <h1>Préparez-vous à avoir peur...</h1>
+    <h1>Descendez dans les Enfers, si vous l'osez...  ↓</h1>
+
+    <div class="main-content">
+        <h1>Les histoires</h1>
+        <div class="destination-list">
+            <div class="destination-item">
+                <img src="bloody_mary.jpg" alt="Bloody Mary">
+                <h3>Bloody Mary</h3>
+                <p>Bloody Mary, l'esprit d'une femme au visage pâle et aux yeux en colère, apparaît dans un miroir lorsque son nom est invoqué trois fois. Victime d'un sort tragique, elle cherche à se venger des vivants. Oseriez-vous l'invoquer et découvrir les secrets du miroir ?</p>
+                <a href="bloody_mary.html">Invoquer Bloody Mary</a>
+            </div>
+            <div class="destination-item">
+                <img src="dame_blanche.jpg" alt="Dame Blanche">
+                <h3>La dame blanche</h3>
+                <p>La Dame Blanche, vêtue d'une robe fantomatique, erre dans les nuits sombres, annonçant un destin funeste. Son apparition est un appel à affronter les secrets du passé. Oseriez-vous la croiser sur votre chemin ?</p>
+                <a href="dame_blanche.html">Invoquer la Dame Blanche</a>
+            </div>
+            <div class="destination-item">
+                <img src="tueur.jpg" alt="Le tueur dans le siège arrière">
+                <h3>Le tueur dans le siège arrière</h3>
+                <p>Une nuit sombre et pluvieuse. La route est trempée. Denise est au volant, très fatiguée, mais l’inquiétude la tient éveillée: le voyant de la jauge d'essence clignote depuis plusieurs kilomètres déjà, et aucune ville n’est annoncée à l’horizon. Mais, alors qu’elle va pour actionner son clignotant, elle aperçoit une petite station d'essence décrépie sur le bord de la route. Elle décide alors de s’arrêter.</p>
+                <a href="tueur.html">Se retourner vers la banquette arrière</a>
+            </div>
+           
+        </div>
+    </div>
+
+</body>
+</html>

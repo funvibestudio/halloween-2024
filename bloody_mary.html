@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nosifer&family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Rubik', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f39a1d;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        h1 {
+            font-family: 'Nosifer', cursive;
+            text-align: center;
+            color: #ff0000;
+            margin-top: 50px;
+        }
+
+        .main-content {
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        table td {
+            padding: 10px;
+            color: #fff; /* Couleur du texte */
+        }
+
+        /* Masquer le texte au départ */
+        .hidden-text {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, visibility 0s 2s;
+        }
+
+        .reveal {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 2s ease-in-out, visibility 0s;
+        }
+
+        /* Media queries for background images */
+        @media (min-width: 1024px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour desktop */
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                background-image: url('background1desktop.jpg'); /* Image pour tablette */
+            }
+        }
+
+        @media (max-width: 767px) {
+            body {
+                background-image: url('background1mobile.jpg'); /* Image pour mobile */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+   <!-- Barre de navigation en haut -->
+   <header>
+    <nav>
+        <a href="histoires.html">Histoires d'Halloween</a>
+        <a href="bonbons.html">Calendrier d'activités</a>
+        <a href="photos.html">Jeu de défis photo</a>
+    </nav>
+</header>
+
+    <!-- Section pour l'histoire mystérieuse -->
+    <section id="mysterious-story">
+        <h2>Une Histoire Terrifiante</h2>
+        <p id="story" class="hidden-text"></p>
+    </p>
+    </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const story = document.getElementById('story');
+        const text = `Il était une fois, dans un petit village, une jeune femme nommée Mary. D’une beauté saisissante, elle attirait l’attention de tous, mais elle était aussi très vaniteuse. Elle se regardait souvent dans le miroir, admirant son reflet. Les rumeurs racontaient qu'elle était en quête de la jeunesse éternelle et de la beauté parfaite.
+
+Un jour, un événement tragique se produisit. Mary, en sortant d'une fête, se rendit dans les bois voisins pour se promener. Malheureusement, elle fut attaquée par un groupe de jeunes hommes qui la laissèrent pour morte. Le corps de Mary fut retrouvé plusieurs jours plus tard, mais l'esprit de la jeune femme ne trouva jamais le repos. Elle erra dans le village, désireuse de se venger de ceux qui lui avaient fait du mal.
+
+Les années passèrent, et la légende de Bloody Mary naquit. On disait que si quelqu'un voulait la convoquer, il devait se tenir devant un miroir dans une pièce sombre, allumer une bougie, et répéter son nom trois fois : "Bloody Mary, Bloody Mary, Bloody Mary."
+
+Ceux qui osaient le faire racontaient avoir vu son visage apparaître dans le miroir, leurs yeux pleins de colère, et sa voix résonnant comme un écho dans la pièce. On disait qu'elle se vengeait de ceux qui étaient arrogants et prétentieux, tout comme elle l'avait été de son vivant.
+
+La légende se propagea, et les adolescents commencèrent à se rassembler pour tenter d’invoquer Bloody Mary. Les histoires de ceux qui avaient eu des expériences terrifiantes se multipliaient. Certains disaient avoir vu son visage déformé et sanguinolent, tandis que d'autres affirmaient avoir senti une présence froide derrière eux.
+
+Un soir, un groupe d’amis, désireux de prouver leur bravoure, décida d’invoquer Bloody Mary. Ils se rendirent dans une vieille maison abandonnée, allumèrent une bougie et se tinrent devant un grand miroir poussiéreux. Tremblants, ils répétèrent son nom trois fois.
+
+Au début, rien ne se passa. Mais soudain, le miroir se mit à vibrer et une ombre apparut derrière eux. Les amis se retournèrent, mais il n'y avait rien. Ils regardèrent à nouveau le miroir et virent le visage de Bloody Mary, pâle et furieux, se refléter avec une expression de rage. Un cri déchirant retentit dans la pièce.
+
+Terrifiés, les jeunes s’enfuirent de la maison, mais l’un d’eux trébucha et tomba. Quand il se retourna pour se relever, il vit la silhouette de Mary se rapprocher, la rage brûlant dans ses yeux.
+
+Depuis ce jour, personne n'osa plus invoquer Bloody Mary. Ceux qui en entendent parler savent que son esprit vengeur rôde toujours, attendant ceux qui oseraient la provoquer à nouveau.
+
+
+
+
+
+
+`;
+    
+        let i = 0;
+        function revealStory() {
+            if (i < text.length) {
+                story.innerHTML += text.charAt(i);  // Ajouter chaque lettre une par une
+                i++;
+                setTimeout(revealStory, 50);  // Ajuster la vitesse ici (50 ms)
+            }
+        }
+    
+        // Commence l'effet mystérieux après un délai (1 seconde ici)
+        setTimeout(function() {
+            revealStory();
+            story.classList.add('reveal');  // Ajoute la classe pour révéler l'opacité
+        }, 500);
+    });
+</script>
+
+</body>
+</html>
